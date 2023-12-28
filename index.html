@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      student = ["A", "C", "B", "D"];
+      firstSem = [3.22, 3.8, 3.0, 2.8];
+      cgpa = [3.5, 3.6, 3.9, 3.0];
+      stdinfo = [];
+
+      for (let i = 0; i < student.length; i++) {
+        $data = [student[i], firstSem[i], cgpa[i]];
+        stdinfo[i] = $data;
+      }
+
+      for (let i = 0; i < stdinfo.length; i++) {
+        for (let j = 0; j < stdinfo.length - i - 1; j++) {
+          if (stdinfo[j][2] < stdinfo[j + 1][2]) {
+            temp = stdinfo[j];
+            stdinfo[j] = stdinfo[j + 1];
+            stdinfo[j + 1] = temp;
+          }
+        }
+      }
+      console.log(stdinfo);
+
+      str = "hasibur rahman";
+      strArr = [];
+      for (let i = 0; i < str.length; i++) {
+        strLow = str[i].toLowerCase();
+        if (strLow >= "a" && strLow <= "z") {
+          if (strArr[strLow]) {
+            strArr[strLow]++;
+          } else {
+            strArr[strLow] = 1;
+          }
+        }
+      }
+
+      for (let i = 0; i < strArr.length; i++) {
+        for (let j = 0; j < strArr.length - i - 1; j++) {
+          if (strArr[i] < strArr[i + 1]) temp = strArr[i];
+          strArr[i] = strArr[j + 1];
+          strArr[j + 1] = temp;
+        }
+      }
+
+      let maxCount = 0;
+      let maxChar;
+      for (let char in strArr) {
+        if (strArr[char] > maxCount) {
+            maxCount = strArr[char];
+            maxChar = char
+        }
+      }
+      console.log(strArr);
+      console.log(maxCount);
+      console.log(maxChar);
+    </script>
+  </body>
+</html>
